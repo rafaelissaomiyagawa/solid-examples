@@ -1,0 +1,15 @@
+
+== Teste do adoc 
+
+ [NOTE]
+ ====
+ testando note
+ ====
+
+[IMPORTANT]
+====
+Outro bloco
+====
+
+include::app/src/main/java/br/com/meaxuda/examples/singleresponsibility/SingleResponsibilityPrinciple.java[]
+
