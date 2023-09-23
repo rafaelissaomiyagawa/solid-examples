@@ -1,15 +1,17 @@
 
 == Teste do adoc 
 
- [NOTE]
- ====
- testando note
- ====
+WARNING: Issao testando
 
-[IMPORTANT]
-====
-Outro bloco
-====
+NOTE: Nota
+
+TIP: Dica
+
+IMPORTANT: Importante
+
+CAUTION: Cuidado
+
+WARNING: Perigo
 
 include::app/src/main/java/br/com/meaxuda/examples/singleresponsibility/SingleResponsibilityPrinciple.java[]
 
