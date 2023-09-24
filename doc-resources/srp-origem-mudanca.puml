@@ -1,0 +1,14 @@
+@startuml
+skinparam actorStyle awesome
+actor Autenticação
+actor Aluno
+actor Professor
+
+Autenticação -right-> (classe Usuario)
+Aluno --> (classe Usuario)
+Professor -left-> (classe Usuario)
+
+note top of Autenticação : email, senha
+note top of Aluno : matricula, notas, isProfessor
+note top of Professor : disciplinas, isProfessor
+@enduml
