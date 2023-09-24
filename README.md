@@ -17,7 +17,8 @@ O princípio da responsabilidade única fala sobre como diminuir o acoplamento b
 
 Para entender melhor vamos ver alguns exemplos.
 
-### SRP aplicado no código
+### SRP aplicado no código 
+
 Imagine uma classe chamada de Usuario que representa os usuários com email e senha para acessar um sistema.
 
 ```java
