@@ -3,6 +3,7 @@
 * [**S**ingle Responsibility Principle](#single-responsibility-principle)
   * [SRP aplicado no código](#srp-aplicado-no-código)
 * [**O**pen/Closed Principle](#open-closed-principle)
+  * [OCP aplicado no código](#ocp-aplicado-no-código)
 * [**L**iskov Substitution Principle](#liskov-substitution-principle)
 * [**I**nterface Segregation Principle](#interface-segregation-principle)
 * [**D**ependency Inversion Principle](#dependency-inversion-principle)
@@ -30,14 +31,16 @@ class Usuario {
 
 Agora vamos supor que este sistema é um sistema utilizado para registrar notas dos alunos que frequentam a escola. Então, vamos adicionar um atributo chamado de matrícula e notas.
 
-<pre>
+```java
 class Usuario {
     private final String email;
     private final String senha;
-    <b>private final String matricula;
-    private final List<Double> notas;</b>
+    
+    // Novas alterações
+    private final String matricula;
+    private final List<Double> notas;
 }
-</pre>
+```
 
 Aqui já temos um sinal de que o princípio está sendo quebrado. Mas, vamos continuar para entender o problema.
 O nosso sistema está ficando bom. As escolas gostaram e agora querem que o sistema tenha um cadastro de professores. Então, vamos adicionar um atributo chamado de disciplina para saber qual disciplina o professor leciona e um booleano para diferenciar aluno e professor.
@@ -48,6 +51,8 @@ class Usuario {
     private final String senha;
     private final String matricula;
     private final List<Double> notas;
+    
+    // Eita, está crescendo
     private final String disciplina;
     private final boolean isProfessor;
 }
@@ -105,6 +110,8 @@ Módulos que atendem o princípio aberto/fechado possuem dois principais atribut
 
 Conseguimos atingir estes dois atributos utilizando abstração.
 
+### OCP aplicado no código
+
 Vamos ver o que acontece com um código que não atende o princípio aberto/fechado para depois arrumarmos o problema.
 
 Vamos supor que temos um sistema que é possível simular um dia de trabalho de uma equipe ágil.
@@ -151,6 +158,7 @@ class EquipeAgil {
         for (Desenvolvedor desenvolvedor : desenvolvedores) {
             desenvolvedor.desenvolve();
         }
+        // Para cada novo perfil, preciso adicionar um novo loop
         for (Testador testador : testadores) {
             testador.testa();
         }
@@ -160,6 +168,7 @@ class EquipeAgil {
         desenvolvedores.add(desenvolvedor);
     }
     
+    // Para cada novo perfil, preciso criar um método para adicionar
     public void adicionaTestador(Testador testador) {
         testadores.add(testador);
     }
@@ -187,15 +196,18 @@ interface Profissional {
     void executa();
 }
 
+// Nunca mais precisamos modificar esta classe
 class EquipeAgil {
     private final List<Profissional> profissionais = new ArrayList<>();
 
     public void simulaUmDiaDeTrabalho() {
+        // Não importa o perfil, todos executam
         for (Profissional profissional : profissionais) {
             profissional.executa();
         }
     }
     
+    // Não importa o perfil, todos são adicionados por este método
     public void adicionaProfissional(Profissional profissional) {
         profissionais.add(profissional);
     }
@@ -275,6 +287,8 @@ class Testador implements Profissional {
     this.testa();
   }
 }
+
+// Só preciso criar uma classe que implementa Profissional
 class GerenteDeProjeto implements Profissional {
     public void gerencia() {
         System.out.println("Gerenciando");
@@ -286,8 +300,6 @@ class GerenteDeProjeto implements Profissional {
     }
 }
 ```
-### OCP aplicado no código
-
 
 
 ## Liskov Substitution Principle
