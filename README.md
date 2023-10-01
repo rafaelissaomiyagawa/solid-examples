@@ -1,7 +1,7 @@
 # S.O.L.I.D. Exemplos
 
 * [**S**ingle Responsibility Principle](#single-responsibility-principle)
-  * [SRP aplicado no código](doc-examples/SRP)
+  * [SRP aplicado no código](solid-examples/SRP)
 * [**O**pen/Closed Principle](#open-closed-principle)
   * [OCP aplicado no código](#ocp-aplicado-no-código)
 * [**L**iskov Substitution Principle](#liskov-substitution-principle)
@@ -17,7 +17,7 @@
 O princípio da responsabilidade única fala sobre como diminuir o acoplamento baseado na frequência e na origem das mudanças/alterações no código.
 s
 Para entender melhor vamos ver alguns exemplos.
-* [SRP aplicado no código](doc-examples/SRP)
+* [SRP aplicado no código](solid-examples/SRP)
 
 [^1]: https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html
 
